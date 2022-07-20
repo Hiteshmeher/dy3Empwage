@@ -8,30 +8,40 @@ package com.bridgelabz.EmployeeWage;
 public class EmployeeWage {
 
 	static final int WagePerHour = 20;
-	static final int FullDayHours = 8;
+	static final int FullDayHour = 8;
 	static final int PartTimeHour = 4;
+	static final int IsPartTime = 0;
+	static final int IsFulltime = 1;
 /**
  * 
  * @param args
  */
-    public static void main(String[] args) {
-    	/**
-    	 * calculating employee wage for Present Employee and Part time Employee
-    	 */
-        System.out.println("Welcome to Employee Wage Problem::");
-        int dailyWages = 0;
-        int attendance = (int) Math.floor(Math.random()*10)%3;
-        if (attendance == 0)
-            System.out.println("Emloyee is absent");
-        else if (attendance == 1) {
-            System.out.println("Employee is present");
-            dailyWages = WagePerHour * FullDayHours;
-            System.out.println("Wages of the day is  "+dailyWages);
-        }
-        else {
-            System.out.println("Employee is present for the Half day");
-            dailyWages = WagePerHour * PartTimeHour;
-            System.out.println("Wages of the day for part time "+dailyWages);
-        }
-    }
+	public static void main(String[] args) {
+		/**
+		 * initializing values generating random number 0, 1, 2 
+		 * if o the part time job
+		 * if 1 then present for the job 
+		 * if 2 then absent 
+		 * using switch case statement printing employee is present or not or part time
+		 * and calculating their daily wages
+		 */
+		System.out.println("Welcome to Employee Wage Problem::");
+		int dailyWages = 0;
+		int attendance = (int) Math.floor(Math.random() * 10) % 3;
+		switch (attendance) {
+		case IsPartTime:
+			System.out.println("Employee is doing Half day");
+			dailyWages = WagePerHour * PartTimeHour;
+			System.out.println("Wages for the day is " + dailyWages);
+			break;
+		case IsFulltime:
+			System.out.println("Employee is present");
+			dailyWages = WagePerHour * FullDayHour;
+			System.out.println("Wages for the day is " + dailyWages);
+			break;
+		default:
+			System.out.println("Employee is Absent");
+			break;
+		}
+	}
 }
